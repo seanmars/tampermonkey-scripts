@@ -18,7 +18,17 @@
       return;
     }
 
-    sidebar.classList.toggle('hide');
+    if (sidebar.style.display === "none") {
+        sidebar.style.display = "block";
+    } else {
+        sidebar.style.display = "none";
+    }
+
+    const player = document.getElementById('player');
+    const css = player.style.cssText;
+    player.style.cssText = `${css}
+      height: 100%;
+    `;
   }
 
 
@@ -44,4 +54,6 @@
   button.addEventListener('click', toggleSidebar);
 
   target.appendChild(button);
+
+  button.click();
 })();
